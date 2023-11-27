@@ -1,34 +1,64 @@
-<<<<<<< HEAD
-# HotTakes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+### To make it work ###
+- npm start on frontend terminal
+- npm start on backend terminal
+- Open http://localhost:4200/
+- And my MongoDB database password
 
-## Development server
+### Short story ###
+The first version is a “sauces gallery” allowing users to upload their favorite hot sauces and like or dislike sauces that others share. The front-end of the application was developed using Angular and was precompiled after internal testing, and we developed the back-end to build the API, while paying attention to the requirements for security (all user passwords collected by the application are protected).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### API Errors ###
+Errors are returned as they are produced, without modification or addition.
 
-## Code scaffolding
+### Routes API ###
+All sauce routes for sauces have an authorization (the token is sent by the front-end with the authorization header: "Bearer <token>"). Before the user can make any changes to the sauce route, the code is checked to see if the current userId matches the sauce's userId. If the userId does not does not match, we have “403: unauthorized request. » This ensures that only the owner of the sauce can make changes to it.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Steps
 
-## Build
+### Step 1 The following elements for the user ###
+- User model
+- User journey
+- User controller
+  
+### The user is able to perform the following operations ###
+- Create an account 
+- Connect and have a valid token
+  
+### Step 2 Start the middleware ###
+- Added multer for images
+- Added authorize for token validation
+- Authorize was added before starting to build the course for the sauces because authentication is necessary for a user to perform an action on the course of sauces.
+  
+### Step 3 For the route API sauce ###
+- The Sauce Model
+- The Sauce Route
+- The Sauce Controller
+- Authorizes all functions using Authorize middleware
+- On the Devtools network tab for more information
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### The user is able to perform the following operations ###
+- Add new sauce
+- Delete a sauce
+- See all sauces
+- The user can like or dislike a sauce (or
+none)
 
-## Running unit tests
+# Security requirements 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+● The user's password is hashed.
 
-## Running end-to-end tests
+● Authentication is strengthened on all required sauce routes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+● Email addresses in the database are unique and one appropriate Mongoose plugin is used to ensure their uniqueness and report Errors.
 
-## Further help
+● MongoDB database security (from a service such as MongoDB Atlas) does not prevent the application from launching on the a user's machine.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+● A Mongoose plugin ensures the reporting of errors from the database of data.
 
+● Latest versions of software are used with patches updated security.
 
-=======
-# Project6-
-Build a Secure API for a Review App
->>>>>>> 1b42b5324d8e54c2b3f1452d4e48011249e36316
+# Skills
+- Store data securely
+- Implement a logical data model in accordance with the regulations
+- Implement CRUD operations in a secure way
